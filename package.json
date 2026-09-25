@@ -2,9 +2,10 @@
 	"name": "message-board",
 	"version": "1.0.0",
 	"description": "Simple message board app using express and EJS for html templates.",
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
-		"dev": "node --watch app.js",
+		"start": "node app.js",
+		"dev": "node --env-file=.env --watch app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
