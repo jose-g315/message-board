@@ -3,11 +3,13 @@ const messages = [
 		text: 'Hi there!',
 		user: 'Amando',
 		added: new Date(),
+		id: crypto.randomUUID(),
 	},
 	{
 		text: 'Hello World!',
 		user: 'Charles',
 		added: new Date(),
+		id: crypto.randomUUID(),
 	},
 ];
 
@@ -25,6 +27,7 @@ function addMessage(req, res) {
 		user: req.body.user,
 		text: req.body.message,
 		added: new Date(),
+		id: crypto.randomUUID(),
 	};
 	messages.push(newMessage);
 	res.redirect('/');
@@ -35,5 +38,11 @@ function getMessages(req, res) {
 function getMessageForm(req, res) {
 	res.render('messageForm');
 }
+function getMessage(req, res) {
+	const message = messages.find(
+		(obj) => String(obj.id) === req.params.messageId
+	);
+	res.render('message', { message: message });
+}
 
-export { addMessage, getMessages, getMessageForm };
+export { addMessage, getMessages, getMessageForm, getMessage };

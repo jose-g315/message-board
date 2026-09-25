@@ -16,8 +16,9 @@
         <div class="messages-container">
             <% messages.forEach(message => { %>
             <div class="message-card">
-            <p><%= message.text %></p>
-            <small>Sent by <%= message.user %> on <%= message.added.toLocaleString() %></small>
+                <p><%= message.text %></p>
+                <small>Sent by <%= message.user %> on <%= message.added.toLocaleString() %></small>
+                <a class="card-link" href="/message/<%= message.id %>">Open</a>
             </div>
             <% }) %>
         </div>
