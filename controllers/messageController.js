@@ -19,13 +19,15 @@ function addMessage(req, res) {
 		!req.body.user ||
 		!req.body.message ||
 		req.body.user.trim().length === 0 ||
-		req.body.message.trim().length === 0
+		req.body.message.trim().length === 0 ||
+		req.body.user.trim().length > 10 ||
+		req.body.message.trim().length > 50
 	) {
-		return res.status(400).send('User and message cannot be empty');
+		return res.status(400).render('error', { error: '400 - Invalid Message' });
 	}
 	const newMessage = {
-		user: req.body.user,
-		text: req.body.message,
+		user: req.body.user.trim(),
+		text: req.body.message.trim(),
 		added: new Date(),
 		id: crypto.randomUUID(),
 	};
@@ -42,6 +44,9 @@ function getMessage(req, res) {
 	const message = messages.find(
 		(obj) => String(obj.id) === req.params.messageId
 	);
+	if (!message) {
+		return res.status(404).render('error', { error: '404-Message Not Found' });
+	}
 	res.render('message', { message: message });
 }
 

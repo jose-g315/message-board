@@ -2,9 +2,10 @@ import express from 'express';
 import path from 'path';
 import { indexRouter } from './routes/indexRouter.js';
 import { messageRouter } from './routes/messageRouter.js';
+import { singleMessageRouter } from './routes/singleMessageRouter.js';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const currDir = import.meta.dirname;
 
 // setting template engine ejs
@@ -19,13 +20,17 @@ app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
 // defined routes and their routers
+app.use('/message', singleMessageRouter);
 app.use('/new', messageRouter);
 app.use('/', indexRouter);
 
 // error handling middleware
+app.use((req, res) => {
+	res.status(404).render('error', { error: '404-Page Not Found' });
+});
 app.use((err, req, res, next) => {
 	console.error(err);
-	res.status(500).send(err);
+	res.status(500).render('error', { error: '500-Something Went Wrong' });
 });
 
 app.listen(PORT, (err) => {
