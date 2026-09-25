@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="/appStyles.css">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1>Message Board</h1>
+            <a href="/new">Post Message</a>
+        </div>
+        <div class="messages-container">
+            <% messages.forEach(message => { %>
+            <div class="message-card">
+            <p><%= message.text %></p>
+            <small>Sent by <%= message.user %> on <%= message.added.toLocaleString() %></small>
+            </div>
+            <% }) %>
+        </div>
+        <%- include ('footer') %>
+    </div>
+</body>
+</html>

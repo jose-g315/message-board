@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Message</title>
+    <link rel="stylesheet" href="appStyles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1>Post It!</h1>
+            <a href=".">Go Back</a>
+        </div>
+        <form method="POST" action="/new"> 
+            <h2>Message Form</h2>
+            <hr>
+            <label for="user">Enter Username:</label>
+            <input type="text" name="user" id="user" required maxlength="10">
+            <label for="message">Enter Message:</label>
+            <input type="text" name="message" id="message" required maxlength="50">
+            <button type="submit">Post It!</button>
+        </form>
+          <%- include ('footer') %>
+    </div>
+</body>
+</html>
