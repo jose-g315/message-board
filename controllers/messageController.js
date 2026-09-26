@@ -6,13 +6,30 @@ const messages = [
 		id: crypto.randomUUID(),
 	},
 	{
-		text: 'Hello World!',
+		text: 'Hello World! Loving this new message board architecture.',
 		user: 'Charles',
 		added: new Date(),
 		id: crypto.randomUUID(),
 	},
+	{
+		text: 'Does anyone know the best way to handle routing middleware?',
+		user: 'Jane',
+		added: new Date(),
+		id: crypto.randomUUID(),
+	},
+	{
+		text: 'Hey everyone, glad to be here!',
+		user: 'Sam',
+		added: new Date(),
+		id: crypto.randomUUID(),
+	},
+	{
+		text: 'Just testing out the MVC controller logic. Works perfectly!',
+		user: 'Alex',
+		added: new Date(),
+		id: crypto.randomUUID(),
+	},
 ];
-
 function addMessage(req, res) {
 	// validating on the backend incase user bypasses form requirements
 	if (

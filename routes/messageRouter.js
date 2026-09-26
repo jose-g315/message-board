@@ -1,12 +1,8 @@
 import { Router } from 'express';
-import {
-	addMessage,
-	getMessageForm,
-} from '../controllers/messageController.js';
+import { getMessage } from '../controllers/messageController.js';
 
 const messageRouter = Router();
 
-messageRouter.get('/', getMessageForm);
-messageRouter.post('/', addMessage);
+messageRouter.get('/:messageId', getMessage);
 
 export { messageRouter };
