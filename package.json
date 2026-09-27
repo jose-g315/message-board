@@ -22,7 +22,8 @@
 	"homepage": "https://github.com/jose-g315/message-board#readme",
 	"dependencies": {
 		"ejs": "^6.0.1",
-		"express": "^5.2.1"
+		"express": "^5.2.1",
+		"express-validator": "^7.3.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.14"

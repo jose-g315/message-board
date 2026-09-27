@@ -1,7 +1,5 @@
 import express from 'express';
 import path from 'path';
-import { indexRouter } from './routes/indexRouter.js';
-import { newMessageRouter } from './routes/newMessageRouter.js';
 import { messageRouter } from './routes/messageRouter.js';
 
 const app = express();
@@ -20,9 +18,7 @@ app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
 // defined routes and their routers
-app.use('/message', messageRouter);
-app.use('/new', newMessageRouter);
-app.use('/', indexRouter);
+app.use('/', messageRouter);
 
 // error handling middleware
 app.use((req, res) => {
