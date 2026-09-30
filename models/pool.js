@@ -1,7 +1,5 @@
 import { Pool } from 'pg';
 
-const pool = new Pool({
-	connectionString: `postgresql://${{ PGUSER }}:${{ POSTGRES_PASSWORD }}@${{ RAILWAY_PRIVATE_DOMAIN }}:${PGPORT}/${{ PGDATABASE }}`,
-});
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 export { pool };
