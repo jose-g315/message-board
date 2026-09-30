@@ -6,7 +6,8 @@
 	"scripts": {
 		"start": "node app.js",
 		"dev": "node --env-file=.env --watch app.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"populate": "node --env-file=.env models/populatedb.js"
 	},
 	"repository": {
 		"type": "git",
@@ -23,7 +24,8 @@
 	"dependencies": {
 		"ejs": "^6.0.1",
 		"express": "^5.2.1",
-		"express-validator": "^7.3.2"
+		"express-validator": "^7.3.2",
+		"pg": "^8.23.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.14"

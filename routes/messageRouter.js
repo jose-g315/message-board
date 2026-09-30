@@ -5,8 +5,14 @@ import {
 	messageGet,
 	messagesListGet,
 } from '../controllers/messageController.js';
-import { validateMessage } from '../middleware/messageValidation.js';
-import { handleValidationErrors } from '../middleware/validation.js';
+import {
+	validateMessage,
+	validateMessageId,
+} from '../middleware/messageValidation.js';
+import {
+	handleParamErrors,
+	handleValidationErrors,
+} from '../middleware/validation.js';
 
 const messageRouter = Router();
 
@@ -18,6 +24,11 @@ messageRouter.post(
 	handleValidationErrors,
 	createMessagePost
 );
-messageRouter.get('/message/:messageId', messageGet);
+messageRouter.get(
+	'/message/:messageId',
+	validateMessageId,
+	handleParamErrors,
+	messageGet
+);
 
 export { messageRouter };
