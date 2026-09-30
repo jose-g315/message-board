@@ -3,7 +3,7 @@ import path from 'path';
 import { messageRouter } from './routes/messageRouter.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.EXPRESS_PORT || 3000;
 const currDir = import.meta.dirname;
 
 // setting template engine ejs
