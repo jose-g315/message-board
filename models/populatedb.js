@@ -3,7 +3,6 @@
 import { Client } from 'pg';
 
 const databaseUrl = process.argv[2];
-console.log('RECEIVED URL:', process.argv[2]);
 if (!databaseUrl) {
 	console.error('Please provide a database URL connection string!');
 	process.exit(1);
